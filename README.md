@@ -6,13 +6,13 @@ Through the use of three composer libraries, this service implements an access c
 The composer libraries and their respective functions are:
 #### 1. [Slim Framework][1]
 
-⋅⋅⋅Provide the REST API.
+    - Provide the REST API.
 #### 2. [PHP-JWT][2]
 
-⋅⋅⋅Responsible for key tokenizer.
+    - Responsible for key tokenizer.
 #### 3. [Authentication Middleware][3]
 
-⋅⋅⋅Implements an intermediate function before executing the expected route.
+    - Implements an intermediate function before executing the expected route.
 
 ## Instalation Guide
 
