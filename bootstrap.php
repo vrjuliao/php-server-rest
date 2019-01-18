@@ -22,6 +22,12 @@ $configs = [
  */
 $container = new \Slim\Container($configs);
 $container['open_ssl_key_length'] = 512;
+$container['dbhost'] = '127.0.0.1';
+$container['dbname'] = 'oauth_slim';
+$container['dbuser'] = 'dev_root';
+$container['dbpassword'] = 'dev_root_password';
+//rotas que a classe AuthValidate nao atuara
+$container['passthrough'] = ['/auth']
 
 /**
  * Converte os Exceptions Genéricas dentro da Aplicação em respostas JSON
@@ -68,4 +74,4 @@ $isDevMode = true;
  */
 $app = new \Slim\App($container);
 
-$app->add(new \App\AuthValidate());
+$app->add(new \App\AuthValidate($container));

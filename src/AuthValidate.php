@@ -7,12 +7,15 @@ use \Slim\Middleware\JwtAuthentication;
  * Controller de Autenticação
  */
 class AuthValidate extends JwtAuthentication {
-	public function __construct() {
+	private $container;
+
+	public function __construct($container) {
+		$this->container = $container;
 		$options =	[
 			"regexp" => "/(.*)/",
-			"header" => "X-Token",
+			"header" => "web_token",
 			"path" => "/",
-			"passthrough" => ["/auth", "/admin/ping"],
+			"passthrough" => $container['passthrough'],
 			// "passthrough" => ["/admin/ping"],
 			"realm" => "Protected",
 			"secret" => 'NULL'
@@ -48,7 +51,8 @@ class AuthValidate extends JwtAuthentication {
 	}
 
 	private function get_key_word_from_id($user_id){
-		$conn = new \PDO('mysql:host=localhost;dbname=oauth_slim', 'dev_root', 'dev_root_password');
+		$conn = new \PDO('mysql:host='.$this->container['dbhost'].';dbname='.$this->container['dbname'],
+						$this->container['dbuser'], $this->container['dbpassword']);
 		$stmt = $conn->prepare(
 			'SELECT * FROM oauth_users WHERE id = :id;'
 		);

@@ -36,7 +36,8 @@ class AuthController {
 		$cstrong = true;
 		$request_data = $request->getParsedBody();
 		
-		$connection = new \PDO('mysql:host=localhost;dbname=oauth_slim', 'dev_root', 'dev_root_password');
+		$connection = new \PDO('mysql:host='.$this->container['dbhost'].';dbname='.$this->container['dbname'],
+						$this->container['dbuser'], $this->container['dbpassword']);
 		$request_data = $this->get_user_data($request_data, $connection);
 
 		$bytes = openssl_random_pseudo_bytes($key_length, $cstrong);
@@ -48,7 +49,10 @@ class AuthController {
 			"email" => $request_data['email']
 		);
 		$jwt = JWT::encode($token, $key);
-		return $response->withJson(["auth-jwt" => $jwt], 200)
+		$response_object = array(
+			'web_token' => $jwt,
+			'user_id'   => $request_data['id']);
+		return $response->withJson($response_object, 200)
 			->withHeader('Content-type', 'application/json');
 	}
 
