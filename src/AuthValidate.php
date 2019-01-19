@@ -21,7 +21,6 @@ class AuthValidate extends JwtAuthentication {
 			"secret" => 'NULL'
 		];
 
-		// var_dump("chegou aqui asagdhadjhgakjsdhfalksjdfhçaoskdhflkajhdlk");
 		parent::__construct($options);
 	}
 
