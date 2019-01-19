@@ -90,7 +90,7 @@ To execute other routes, you need to add two new request headers that were retur
 You can execute the test route, with GET method `http://127.0.0.1:8000/example`
 
 #### 3. Creating new routes and methods
-Use `routes.php` to create and customize your new route requests. If you do not know how to create a group of routes, [read this page] [4].
+Use `routes.php` to create and customize your new route requests. If you do not know how to create a group of routes, [read this page][4].
 Take `src/Controllers/ExampleController.php` as an example to create new Controllers and modularize your project.
 
 [1]: http://www.slimframework.com
