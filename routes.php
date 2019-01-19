@@ -7,8 +7,8 @@ $app->group('', function() {
 	/**
 	 * Dentro de v1, o recurso /book
 	 */
-	$this->group('/main', function() {
-		$this->get('', '\App\Controllers\MainController:validate_token');
+	$this->group('/example', function() {
+		$this->get('', '\App\Controllers\ExampleController:example_method');
 	//	$this->post('', '\App\v1\Controllers\BookController:createBook');
 		
 		/**

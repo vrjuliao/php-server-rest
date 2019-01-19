@@ -27,7 +27,7 @@ $container['dbname'] = 'oauth_slim';
 $container['dbuser'] = 'dev_root';
 $container['dbpassword'] = 'dev_root_password';
 //rotas que a classe AuthValidate nao atuara
-$container['passthrough'] = ['/auth']
+$container['passthrough'] = ['/auth'];
 
 /**
  * Converte os Exceptions Genéricas dentro da Aplicação em respostas JSON

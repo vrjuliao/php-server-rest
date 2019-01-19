@@ -5,7 +5,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 /**
  * Controller de Autenticação
  */
-class MainController {
+class ExampleController {
 	/**
 	 * Container
 	 * @var object s
@@ -27,7 +27,7 @@ class MainController {
 	* @param [type] $args
 	* @return void
 	*/
-	public function validate_token(Request $request, Response $response, $args) {
+	public function example_method(Request $request, Response $response, $args) {
 		return $response->withJson(["message" => "SUCCESS"], 200)
 			->withHeader('Content-type', 'application/json');
 		 
